@@ -28,4 +28,3 @@ To create a public link, set `share=True` in `launch()`.
 后在本地访问`127.0.0.1:7860`即可查看到网页！
 
 
-可选任务 2
