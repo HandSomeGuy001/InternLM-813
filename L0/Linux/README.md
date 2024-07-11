@@ -1,7 +1,7 @@
 #### 闯关任务 完成SSH连接与端口映射并运行`hello_world.py`
 
 首先上结果图：
-![[attachments\l0_hello_world.png]]
+![](../../attachments/l0_hello_world.png)
 
 ##### 任务要求：
 用SSH实现端口映射，在本地机上访问开发机运行的Web服务；

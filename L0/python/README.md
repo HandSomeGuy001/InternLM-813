@@ -1,11 +1,11 @@
 在Vscode中，可通过在代码文件中加入断点的方式对程序进行调试，如下图所示：  
 Python Debug界面:
-![[attachments/python_debug_button.png]]  
+![](../../attachments/python_debug_button.png)
 此处对比进行标点符号去除前后的字符串  
-![[attachments/l0_python_before_remove.png]]
+![](../../attachments/l0_python_before_remove.png)
 
 可看到运行标点符号去除后，字符串变量中没有标点符号  
-![[attachments/l0_python_after_remove.png]]
+![](../../attachments/l0_python_after_remove.png)
 
 最后附上运行结果 ：
 ```bash
