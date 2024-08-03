@@ -57,5 +57,9 @@ streamlit run app.py
 
 
 ### 前置知识  
-#### 关于LlamaIndex  
-[LlamaIndex官方网站](https://docs.llamaindex.ai/en/stable/#introduction)
+关于LlamaIndex  
+> [LlamaIndex官方网站](https://docs.llamaindex.ai/en/stable/#introduction)
+
+
+关于streamlit  
+> [streamlit](https://streamlit.io/)  
