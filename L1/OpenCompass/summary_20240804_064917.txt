@@ -1,0 +1,153 @@
+20240804_064917
+tabulate format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+dataset                                            version    metric    mode    internllm-1.8b
+-------------------------------------------------  ---------  --------  ------  ----------------
+lukaemon_mmlu_college_biology                      caec7d     accuracy  gen     50.69
+lukaemon_mmlu_college_chemistry                    520aa6     accuracy  gen     32.00
+lukaemon_mmlu_college_computer_science             99c216     accuracy  gen     43.00
+lukaemon_mmlu_college_mathematics                  678751     accuracy  gen     33.00
+lukaemon_mmlu_college_physics                      4f382c     accuracy  gen     27.45
+lukaemon_mmlu_electrical_engineering               770ce3     accuracy  gen     44.14
+lukaemon_mmlu_astronomy                            d3ee01     accuracy  gen     48.68
+lukaemon_mmlu_anatomy                              72183b     accuracy  gen     44.44
+lukaemon_mmlu_abstract_algebra                     2db373     accuracy  gen     31.00
+lukaemon_mmlu_machine_learning                     0283bb     accuracy  gen     32.14
+lukaemon_mmlu_clinical_knowledge                   cb3218     accuracy  gen     48.68
+lukaemon_mmlu_global_facts                         ab07b6     accuracy  gen     22.00
+lukaemon_mmlu_management                           80876d     accuracy  gen     64.08
+lukaemon_mmlu_nutrition                            4543bd     accuracy  gen     45.42
+lukaemon_mmlu_marketing                            7394e3     accuracy  gen     64.96
+lukaemon_mmlu_professional_accounting              444b7f     accuracy  gen     34.40
+lukaemon_mmlu_high_school_geography                0780e6     accuracy  gen     55.05
+lukaemon_mmlu_international_law                    cf3179     accuracy  gen     52.89
+lukaemon_mmlu_moral_scenarios                      -          -         -       -
+lukaemon_mmlu_computer_security                    -          -         -       -
+lukaemon_mmlu_high_school_microeconomics           -          -         -       -
+lukaemon_mmlu_professional_law                     -          -         -       -
+lukaemon_mmlu_medical_genetics                     -          -         -       -
+lukaemon_mmlu_professional_psychology              -          -         -       -
+lukaemon_mmlu_jurisprudence                        -          -         -       -
+lukaemon_mmlu_world_religions                      -          -         -       -
+lukaemon_mmlu_philosophy                           -          -         -       -
+lukaemon_mmlu_virology                             -          -         -       -
+lukaemon_mmlu_high_school_chemistry                -          -         -       -
+lukaemon_mmlu_public_relations                     -          -         -       -
+lukaemon_mmlu_high_school_macroeconomics           -          -         -       -
+lukaemon_mmlu_human_sexuality                      -          -         -       -
+lukaemon_mmlu_elementary_mathematics               -          -         -       -
+lukaemon_mmlu_high_school_physics                  -          -         -       -
+lukaemon_mmlu_high_school_computer_science         -          -         -       -
+lukaemon_mmlu_high_school_european_history         -          -         -       -
+lukaemon_mmlu_business_ethics                      -          -         -       -
+lukaemon_mmlu_moral_disputes                       -          -         -       -
+lukaemon_mmlu_high_school_statistics               -          -         -       -
+lukaemon_mmlu_miscellaneous                        -          -         -       -
+lukaemon_mmlu_formal_logic                         -          -         -       -
+lukaemon_mmlu_high_school_government_and_politics  -          -         -       -
+lukaemon_mmlu_prehistory                           -          -         -       -
+lukaemon_mmlu_security_studies                     -          -         -       -
+lukaemon_mmlu_high_school_biology                  -          -         -       -
+lukaemon_mmlu_logical_fallacies                    -          -         -       -
+lukaemon_mmlu_high_school_world_history            -          -         -       -
+lukaemon_mmlu_professional_medicine                -          -         -       -
+lukaemon_mmlu_high_school_mathematics              -          -         -       -
+lukaemon_mmlu_college_medicine                     -          -         -       -
+lukaemon_mmlu_high_school_us_history               -          -         -       -
+lukaemon_mmlu_sociology                            -          -         -       -
+lukaemon_mmlu_econometrics                         -          -         -       -
+lukaemon_mmlu_high_school_psychology               -          -         -       -
+lukaemon_mmlu_human_aging                          -          -         -       -
+lukaemon_mmlu_us_foreign_policy                    -          -         -       -
+lukaemon_mmlu_conceptual_physics                   -          -         -       -
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+-------------------------------------------------------------------------------------------------------------------------------- THIS IS A DIVIDER --------------------------------------------------------------------------------------------------------------------------------
+
+csv format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+dataset,version,metric,mode,internllm-1.8b
+lukaemon_mmlu_college_biology,caec7d,accuracy,gen,50.69
+lukaemon_mmlu_college_chemistry,520aa6,accuracy,gen,32.00
+lukaemon_mmlu_college_computer_science,99c216,accuracy,gen,43.00
+lukaemon_mmlu_college_mathematics,678751,accuracy,gen,33.00
+lukaemon_mmlu_college_physics,4f382c,accuracy,gen,27.45
+lukaemon_mmlu_electrical_engineering,770ce3,accuracy,gen,44.14
+lukaemon_mmlu_astronomy,d3ee01,accuracy,gen,48.68
+lukaemon_mmlu_anatomy,72183b,accuracy,gen,44.44
+lukaemon_mmlu_abstract_algebra,2db373,accuracy,gen,31.00
+lukaemon_mmlu_machine_learning,0283bb,accuracy,gen,32.14
+lukaemon_mmlu_clinical_knowledge,cb3218,accuracy,gen,48.68
+lukaemon_mmlu_global_facts,ab07b6,accuracy,gen,22.00
+lukaemon_mmlu_management,80876d,accuracy,gen,64.08
+lukaemon_mmlu_nutrition,4543bd,accuracy,gen,45.42
+lukaemon_mmlu_marketing,7394e3,accuracy,gen,64.96
+lukaemon_mmlu_professional_accounting,444b7f,accuracy,gen,34.40
+lukaemon_mmlu_high_school_geography,0780e6,accuracy,gen,55.05
+lukaemon_mmlu_international_law,cf3179,accuracy,gen,52.89
+lukaemon_mmlu_moral_scenarios,-,-,-,-
+lukaemon_mmlu_computer_security,-,-,-,-
+lukaemon_mmlu_high_school_microeconomics,-,-,-,-
+lukaemon_mmlu_professional_law,-,-,-,-
+lukaemon_mmlu_medical_genetics,-,-,-,-
+lukaemon_mmlu_professional_psychology,-,-,-,-
+lukaemon_mmlu_jurisprudence,-,-,-,-
+lukaemon_mmlu_world_religions,-,-,-,-
+lukaemon_mmlu_philosophy,-,-,-,-
+lukaemon_mmlu_virology,-,-,-,-
+lukaemon_mmlu_high_school_chemistry,-,-,-,-
+lukaemon_mmlu_public_relations,-,-,-,-
+lukaemon_mmlu_high_school_macroeconomics,-,-,-,-
+lukaemon_mmlu_human_sexuality,-,-,-,-
+lukaemon_mmlu_elementary_mathematics,-,-,-,-
+lukaemon_mmlu_high_school_physics,-,-,-,-
+lukaemon_mmlu_high_school_computer_science,-,-,-,-
+lukaemon_mmlu_high_school_european_history,-,-,-,-
+lukaemon_mmlu_business_ethics,-,-,-,-
+lukaemon_mmlu_moral_disputes,-,-,-,-
+lukaemon_mmlu_high_school_statistics,-,-,-,-
+lukaemon_mmlu_miscellaneous,-,-,-,-
+lukaemon_mmlu_formal_logic,-,-,-,-
+lukaemon_mmlu_high_school_government_and_politics,-,-,-,-
+lukaemon_mmlu_prehistory,-,-,-,-
+lukaemon_mmlu_security_studies,-,-,-,-
+lukaemon_mmlu_high_school_biology,-,-,-,-
+lukaemon_mmlu_logical_fallacies,-,-,-,-
+lukaemon_mmlu_high_school_world_history,-,-,-,-
+lukaemon_mmlu_professional_medicine,-,-,-,-
+lukaemon_mmlu_high_school_mathematics,-,-,-,-
+lukaemon_mmlu_college_medicine,-,-,-,-
+lukaemon_mmlu_high_school_us_history,-,-,-,-
+lukaemon_mmlu_sociology,-,-,-,-
+lukaemon_mmlu_econometrics,-,-,-,-
+lukaemon_mmlu_high_school_psychology,-,-,-,-
+lukaemon_mmlu_human_aging,-,-,-,-
+lukaemon_mmlu_us_foreign_policy,-,-,-,-
+lukaemon_mmlu_conceptual_physics,-,-,-,-
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+-------------------------------------------------------------------------------------------------------------------------------- THIS IS A DIVIDER --------------------------------------------------------------------------------------------------------------------------------
+
+raw format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
+Model: internllm-1.8b
+lukaemon_mmlu_college_biology: {'accuracy': 50.69444444444444}
+lukaemon_mmlu_college_chemistry: {'accuracy': 32.0}
+lukaemon_mmlu_college_computer_science: {'accuracy': 43.0}
+lukaemon_mmlu_college_mathematics: {'accuracy': 33.0}
+lukaemon_mmlu_college_physics: {'accuracy': 27.450980392156865}
+lukaemon_mmlu_electrical_engineering: {'accuracy': 44.13793103448276}
+lukaemon_mmlu_astronomy: {'accuracy': 48.68421052631579}
+lukaemon_mmlu_anatomy: {'accuracy': 44.44444444444444}
+lukaemon_mmlu_abstract_algebra: {'accuracy': 31.0}
+lukaemon_mmlu_machine_learning: {'accuracy': 32.142857142857146}
+lukaemon_mmlu_clinical_knowledge: {'accuracy': 48.679245283018865}
+lukaemon_mmlu_global_facts: {'accuracy': 22.0}
+lukaemon_mmlu_management: {'accuracy': 64.07766990291263}
+lukaemon_mmlu_nutrition: {'accuracy': 45.42483660130719}
+lukaemon_mmlu_marketing: {'accuracy': 64.95726495726495}
+lukaemon_mmlu_professional_accounting: {'accuracy': 34.39716312056738}
+lukaemon_mmlu_high_school_geography: {'accuracy': 55.05050505050505}
+lukaemon_mmlu_international_law: {'accuracy': 52.892561983471076}
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

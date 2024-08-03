@@ -51,4 +51,35 @@ Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible wit
 日志，推理结果，见 opencompass/outputs/default/\$YOUR_RUN_TIME\$  
 [推理结果example](./lukaemon_mmlu_college_biology.json)
 ***
-跑这个要好久（
+跑这个要好久（  
+经过一夜的推理，还是有很多任务没有跑完，受不了，直接Ctrl+C  
+后运行命令
+```bash
+(demo) (base) root@intern-studio-50088800:~/InternLM-813/L1/OpenCompass/opencompass# python run.py configs/eval_intern_1_8_mmlu.py -m eval -r /root/InternLM-813/L1/OpenCompass/opencompass/outputs/default/20240803_222642
+```
+依据现有推理结果进行推理，-m 设置model为eval验证模式，-r设置依赖工作路径  
+[推理结果](./summary_20240804_064917.txt)
+```bash\
+dataset                                            version    metric    mode    internllm-1.8b
+-------------------------------------------------  ---------  --------  ------  ----------------
+lukaemon_mmlu_college_biology                      caec7d     accuracy  gen     50.69
+lukaemon_mmlu_college_chemistry                    520aa6     accuracy  gen     32.00
+lukaemon_mmlu_college_computer_science             99c216     accuracy  gen     43.00
+lukaemon_mmlu_college_mathematics                  678751     accuracy  gen     33.00
+lukaemon_mmlu_college_physics                      4f382c     accuracy  gen     27.45
+lukaemon_mmlu_electrical_engineering               770ce3     accuracy  gen     44.14
+lukaemon_mmlu_astronomy                            d3ee01     accuracy  gen     48.68
+lukaemon_mmlu_anatomy                              72183b     accuracy  gen     44.44
+lukaemon_mmlu_abstract_algebra                     2db373     accuracy  gen     31.00
+lukaemon_mmlu_machine_learning                     0283bb     accuracy  gen     32.14
+lukaemon_mmlu_clinical_knowledge                   cb3218     accuracy  gen     48.68
+lukaemon_mmlu_global_facts                         ab07b6     accuracy  gen     22.00
+lukaemon_mmlu_management                           80876d     accuracy  gen     64.08
+lukaemon_mmlu_nutrition                            4543bd     accuracy  gen     45.42
+lukaemon_mmlu_marketing                            7394e3     accuracy  gen     64.96
+lukaemon_mmlu_professional_accounting              444b7f     accuracy  gen     34.40
+lukaemon_mmlu_high_school_geography                0780e6     accuracy  gen     55.05
+lukaemon_mmlu_international_law                    cf3179     accuracy  gen     52.89
+
+```
+
