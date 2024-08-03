@@ -15,7 +15,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM  # isort: skip
 logger = logging.get_logger(__name__)
 
 
-model_name_or_path = "/root/InternLM-813/L1/xtuner/Shanghai_AI_Laboratory/internlm2-chat-1_8b"
+model_name_or_path = "/root/InternLM-813/L1/xtuner/models/merged"
 
 @dataclass
 class GenerationConfig:
