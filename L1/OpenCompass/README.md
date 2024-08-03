@@ -48,3 +48,7 @@ Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible wit
 ```bash
 (demo) (base) root@intern-studio-50088800:~/InternLM-813/L1/OpenCompass/opencompass# python run.py configs/eval_intern_1_8_mmlu.py 
 ```
+日志，推理结果，见 opencompass/outputs/default/\$YOUR_RUN_TIME\$  
+[推理结果example](./lukaemon_mmlu_college_biology.json)
+***
+跑这个要好久（
