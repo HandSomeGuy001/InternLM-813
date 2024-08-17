@@ -79,5 +79,8 @@ File "/root/InternLM-813/L2/Lagent/lagent/lagent/llms/lmdeploy_wrapper.py", line
 修改模型名称为internlm2_5-7b-chat后，无报错，正常响应！
 
 结果如下所示：
-![](./Result.png)
+![](../../attachments/L2_Lagent_1.png)
 
+在对配置文件进行修改后，使其根据检索文章结果进行图片生成，工具成功被调用：
+
+![](../../attachments/L2_Lagent_2.png)

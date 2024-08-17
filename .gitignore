@@ -3,3 +3,6 @@ L1/xtuner/Shanghai_AI_Laboratory/
 L1/xtuner/models/
 L1/OpenCompass/opencompass/
 L2/Lagent/lagent
+L2/Lagent/internlm2_agent_web_demo.py
+L2/LMDeploy/internlm2_5-7b-chat-w4a16
+L2/LMDeploy/internlm2_5-7b-chat
