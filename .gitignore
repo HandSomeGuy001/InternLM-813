@@ -13,3 +13,5 @@ L2/InternVL/InternVL2-2B
 L2/InternVL/CLoT_cn_2000
 L2/InternVL/work_dir/diy_config/*.pth
 L2/InternVL/work_dir/internvl_qlora_ft/*.pth
+L2/MindSearch/MindSearch
+L2/HuiXiangDou/huixiangdou
