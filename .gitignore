@@ -6,3 +6,10 @@ L2/Lagent/lagent
 L2/Lagent/internlm2_agent_web_demo.py
 L2/LMDeploy/internlm2_5-7b-chat-w4a16
 L2/LMDeploy/internlm2_5-7b-chat
+L2/InternVL/work_dir/converted_diy_config
+L2/InternVL/work_dir/converted_intervl_qlora_config
+L2/InternVL/xtuner
+L2/InternVL/InternVL2-2B
+L2/InternVL/CLoT_cn_2000
+L2/InternVL/work_dir/diy_config/*.pth
+L2/InternVL/work_dir/internvl_qlora_ft/*.pth

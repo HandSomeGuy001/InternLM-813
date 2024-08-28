@@ -63,3 +63,65 @@ streamlit run app.py
 
 关于streamlit  
 > [streamlit](https://streamlit.io/)  
+
+### App架构
+
+运行流程
+```mermaid
+---
+title:RunFlow
+---
+
+flowchart LR
+    Init[初始化模型] 
+    Wait[等待用户输入] 
+    Message[Query Engine生成响应] 
+    Clear[清除历史记录] 
+
+    Init --> Wait
+    Wait -- "最后一条消息属于用户" --> Message
+    Message --> Wait
+    Wait -- "点击清除按钮" --> Clear
+
+    style Init fill:#ffccff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style Wait fill:#99ccff,stroke:#333,stroke-width:2px
+    style Message fill:#ccffcc,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style Clear fill:#ffcccc,stroke:#333,stroke-width:2px
+
+    classDef init fill:#ffccff,stroke:#333,stroke-width:2px;
+    classDef wait fill:#99ccff,stroke:#333,stroke-width:2px;
+    classDef generate fill:#ccffcc,stroke:#333,stroke-width:2px;
+    classDef clear fill:#ffcccc,stroke:#333,stroke-width:2px;
+
+    class Init init;
+    class Wait wait;
+    class Message generate;
+    class Clear clear;
+
+```
+
+
+
+Query Engine的生成架构：
+```mermaid
+sequenceDiagram
+    participant S as Init Global Setting
+    participant E as Embed-Model
+    participant L as LLM
+    participant D as Document
+    participant V as VectorIndex
+    participant Q as Query_Engine
+
+    S->>E: Initialize Embed-Model
+    S->>L: Initialize LLM
+    D->>E: Load Document
+    E->>V: Create Vector Index
+    V->>Q: Create Query Engine
+    L->>Q: Provide LLM for Query
+
+```
+
+
+
+
+

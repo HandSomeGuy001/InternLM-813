@@ -1,0 +1,552 @@
+2024/08/27 08:54:34 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.10.14 (main, May  6 2024, 19:42:50) [GCC 11.2.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 194263018
+    GPU 0: NVIDIA A100-SXM4-80GB
+    CUDA_HOME: /usr/local/cuda
+    NVCC: Cuda compilation tools, release 12.2, V12.2.140
+    GCC: gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+    PyTorch: 2.1.2
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.1.1 (Git Hash 64f6bcbcbab628e96f33a62c3e975f8535a7bde4)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX512
+  - CUDA Runtime 12.1
+  - NVCC architecture flags: -gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90
+  - CuDNN 8.9.2
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=12.1, CUDNN_VERSION=8.9.2, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=old-style-cast -Wno-invalid-partial-specialization -Wno-unused-private-field -Wno-aligned-allocation-unavailable -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_DISABLE_GPU_ASSERTS=ON, TORCH_VERSION=2.1.2, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+    TorchVision: 0.16.2
+    OpenCV: 4.10.0
+    MMEngine: 0.10.4
+
+Runtime environment:
+    launcher: none
+    randomness: {'seed': None, 'deterministic': False}
+    cudnn_benchmark: False
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: None
+    deterministic: False
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+2024/08/27 08:54:34 - mmengine - INFO - Config:
+accumulative_counts = 2
+batch_size = 12
+betas = (
+    0.9,
+    0.999,
+)
+custom_hooks = [
+    dict(
+        tokenizer=dict(
+            pretrained_model_name_or_path=
+            '/root/InternLM-813/L2/InternVL/InternVL2-2B',
+            trust_remote_code=True,
+            type='transformers.AutoTokenizer.from_pretrained'),
+        type='xtuner.engine.hooks.DatasetInfoHook'),
+]
+data_path = '/root/InternLM-813/L2/InternVL/CLoT_cn_2000/ex_cn.json'
+data_root = '/root/InternLM-813/L2/InternVL/CLoT_cn_2000/'
+dataloader_num_workers = 4
+default_hooks = dict(
+    checkpoint=dict(
+        by_epoch=False,
+        interval=1000,
+        max_keep_ckpts=1,
+        save_optimizer=False,
+        type='mmengine.hooks.CheckpointHook'),
+    logger=dict(
+        interval=10,
+        log_metric_by_epoch=False,
+        type='mmengine.hooks.LoggerHook'),
+    param_scheduler=dict(type='mmengine.hooks.ParamSchedulerHook'),
+    sampler_seed=dict(type='mmengine.hooks.DistSamplerSeedHook'),
+    timer=dict(type='mmengine.hooks.IterTimerHook'))
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+image_folder = '/root/InternLM-813/L2/InternVL/CLoT_cn_2000/'
+launcher = 'none'
+llava_dataset = dict(
+    data_paths='/root/InternLM-813/L2/InternVL/CLoT_cn_2000/ex_cn.json',
+    image_folders='/root/InternLM-813/L2/InternVL/CLoT_cn_2000/',
+    max_length=8192,
+    model_path='/root/InternLM-813/L2/InternVL/InternVL2-2B',
+    template='xtuner.utils.PROMPT_TEMPLATE.internlm2_chat',
+    type='xtuner.dataset.InternVL_V1_5_Dataset')
+load_from = None
+log_level = 'INFO'
+log_processor = dict(by_epoch=False)
+lr = 1e-05
+max_epochs = 8
+max_length = 8192
+max_norm = 1
+model = dict(
+    freeze_llm=True,
+    freeze_visual_encoder=True,
+    llm_lora=dict(
+        lora_alpha=256,
+        lora_dropout=0.05,
+        r=128,
+        target_modules=None,
+        task_type='CAUSAL_LM',
+        type='peft.LoraConfig'),
+    model_path='/root/InternLM-813/L2/InternVL/InternVL2-2B',
+    quantization_llm=True,
+    quantization_vit=False,
+    type='xtuner.model.InternVL_V1_5')
+optim_type = 'torch.optim.AdamW'
+optim_wrapper = dict(
+    optimizer=dict(lr=1.0, type='DAdaptAdam'), type='DeepSpeedOptimWrapper')
+path = '/root/InternLM-813/L2/InternVL/InternVL2-2B'
+prompt_template = 'xtuner.utils.PROMPT_TEMPLATE.internlm2_chat'
+randomness = dict(deterministic=False, seed=None)
+resume = False
+runner_type = 'FlexibleRunner'
+save_steps = 1000
+save_total_limit = 1
+strategy = dict(
+    config=dict(
+        bf16=dict(enabled=True),
+        fp16=dict(enabled=False, initial_scale_power=16),
+        gradient_accumulation_steps='auto',
+        gradient_clipping='auto',
+        train_micro_batch_size_per_gpu='auto',
+        zero_allow_untested_optimizer=True,
+        zero_force_ds_cpu_optimizer=False,
+        zero_optimization=dict(overlap_comm=True, stage=2)),
+    exclude_frozen_parameters=True,
+    gradient_accumulation_steps=1,
+    gradient_clipping=1.0,
+    sequence_parallel_size=1,
+    train_micro_batch_size_per_gpu=12,
+    type='xtuner.engine.DeepSpeedStrategy')
+tokenizer = dict(
+    pretrained_model_name_or_path='/root/InternLM-813/L2/InternVL/InternVL2-2B',
+    trust_remote_code=True,
+    type='transformers.AutoTokenizer.from_pretrained')
+train_cfg = dict(max_epochs=8, type='xtuner.engine.runner.TrainLoop')
+train_dataloader = dict(
+    batch_size=12,
+    collate_fn=dict(type='xtuner.dataset.collate_fns.default_collate_fn'),
+    dataset=dict(
+        data_paths='/root/InternLM-813/L2/InternVL/CLoT_cn_2000/ex_cn.json',
+        image_folders='/root/InternLM-813/L2/InternVL/CLoT_cn_2000/',
+        max_length=8192,
+        model_path='/root/InternLM-813/L2/InternVL/InternVL2-2B',
+        template='xtuner.utils.PROMPT_TEMPLATE.internlm2_chat',
+        type='xtuner.dataset.InternVL_V1_5_Dataset'),
+    num_workers=4,
+    sampler=dict(
+        length_property='modality_length',
+        per_device_batch_size=24,
+        type='xtuner.dataset.samplers.LengthGroupedSampler'))
+visualizer = None
+warmup_ratio = 0.03
+weight_decay = 0.05
+work_dir = './work_dir/diy_config'
+
+2024/08/27 08:54:34 - mmengine - WARNING - Failed to search registry with scope "mmengine" in the "builder" registry tree. As a workaround, the current "builder" registry in "xtuner" is used to build instance. This may cause unexpected failure when running the built modules. Please check whether "mmengine" is a correct scope, or whether the registry is initialized.
+2024/08/27 08:54:34 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DatasetInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) DatasetInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) DatasetInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+2024/08/27 08:54:34 - mmengine - INFO - Starting to loading data and calc length
+2024/08/27 08:54:34 - mmengine - INFO - =======Starting to process /root/InternLM-813/L2/InternVL/CLoT_cn_2000/ex_cn.json =======
+2024/08/27 08:54:34 - mmengine - INFO - =======total 2000 samples of /root/InternLM-813/L2/InternVL/CLoT_cn_2000/ex_cn.json=======
+2024/08/27 08:54:34 - mmengine - INFO - end loading data and calc length
+2024/08/27 08:54:34 - mmengine - INFO - =======total 2000 samples=======
+2024/08/27 08:54:34 - mmengine - INFO - LengthGroupedSampler is used.
+2024/08/27 08:54:34 - mmengine - INFO - LengthGroupedSampler construction is complete, and the selected attribute is modality_length
+2024/08/27 08:54:34 - mmengine - WARNING - Dataset InternVL_V1_5_Dataset has no metainfo. ``dataset_meta`` in visualizer will be None.
+2024/08/27 08:54:34 - mmengine - INFO - Start to load InternVL_V1_5 model.
+2024/08/27 08:54:54 - mmengine - INFO - InternVL_V1_5(
+  (data_preprocessor): BaseDataPreprocessor()
+  (model): InternVLChatModel(
+    (vision_model): InternVisionModel(
+      (embeddings): InternVisionEmbeddings(
+        (patch_embedding): Conv2d(3, 1024, kernel_size=(14, 14), stride=(14, 14))
+      )
+      (encoder): InternVisionEncoder(
+        (layers): ModuleList(
+          (0-23): 24 x InternVisionEncoderLayer(
+            (attn): InternAttention(
+              (qkv): Linear(in_features=1024, out_features=3072, bias=True)
+              (attn_drop): Dropout(p=0.0, inplace=False)
+              (proj_drop): Dropout(p=0.0, inplace=False)
+              (inner_attn): FlashAttention()
+              (proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (mlp): InternMLP(
+              (act): GELUActivation()
+              (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+              (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            )
+            (norm1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+            (norm2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+            (drop_path1): Identity()
+            (drop_path2): Identity()
+          )
+        )
+      )
+    )
+    (language_model): PeftModelForCausalLM(
+      (base_model): LoraModel(
+        (model): InternLM2ForCausalLM(
+          (model): InternLM2Model(
+            (tok_embeddings): Embedding(92553, 2048, padding_idx=2)
+            (layers): ModuleList(
+              (0-23): 24 x InternLM2DecoderLayer(
+                (attention): InternLM2FlashAttention2(
+                  (wqkv): lora.Linear(
+                    (base_layer): Linear4bit(in_features=2048, out_features=4096, bias=False)
+                    (lora_dropout): ModuleDict(
+                      (default): Dropout(p=0.05, inplace=False)
+                    )
+                    (lora_A): ModuleDict(
+                      (default): Linear(in_features=2048, out_features=128, bias=False)
+                    )
+                    (lora_B): ModuleDict(
+                      (default): Linear(in_features=128, out_features=4096, bias=False)
+                    )
+                    (lora_embedding_A): ParameterDict()
+                    (lora_embedding_B): ParameterDict()
+                  )
+                  (wo): lora.Linear(
+                    (base_layer): Linear4bit(in_features=2048, out_features=2048, bias=False)
+                    (lora_dropout): ModuleDict(
+                      (default): Dropout(p=0.05, inplace=False)
+                    )
+                    (lora_A): ModuleDict(
+                      (default): Linear(in_features=2048, out_features=128, bias=False)
+                    )
+                    (lora_B): ModuleDict(
+                      (default): Linear(in_features=128, out_features=2048, bias=False)
+                    )
+                    (lora_embedding_A): ParameterDict()
+                    (lora_embedding_B): ParameterDict()
+                  )
+                  (rotary_emb): InternLM2DynamicNTKScalingRotaryEmbedding()
+                )
+                (feed_forward): InternLM2MLP(
+                  (w1): lora.Linear(
+                    (base_layer): Linear4bit(in_features=2048, out_features=8192, bias=False)
+                    (lora_dropout): ModuleDict(
+                      (default): Dropout(p=0.05, inplace=False)
+                    )
+                    (lora_A): ModuleDict(
+                      (default): Linear(in_features=2048, out_features=128, bias=False)
+                    )
+                    (lora_B): ModuleDict(
+                      (default): Linear(in_features=128, out_features=8192, bias=False)
+                    )
+                    (lora_embedding_A): ParameterDict()
+                    (lora_embedding_B): ParameterDict()
+                  )
+                  (w3): lora.Linear(
+                    (base_layer): Linear4bit(in_features=2048, out_features=8192, bias=False)
+                    (lora_dropout): ModuleDict(
+                      (default): Dropout(p=0.05, inplace=False)
+                    )
+                    (lora_A): ModuleDict(
+                      (default): Linear(in_features=2048, out_features=128, bias=False)
+                    )
+                    (lora_B): ModuleDict(
+                      (default): Linear(in_features=128, out_features=8192, bias=False)
+                    )
+                    (lora_embedding_A): ParameterDict()
+                    (lora_embedding_B): ParameterDict()
+                  )
+                  (w2): lora.Linear(
+                    (base_layer): Linear4bit(in_features=8192, out_features=2048, bias=False)
+                    (lora_dropout): ModuleDict(
+                      (default): Dropout(p=0.05, inplace=False)
+                    )
+                    (lora_A): ModuleDict(
+                      (default): Linear(in_features=8192, out_features=128, bias=False)
+                    )
+                    (lora_B): ModuleDict(
+                      (default): Linear(in_features=128, out_features=2048, bias=False)
+                    )
+                    (lora_embedding_A): ParameterDict()
+                    (lora_embedding_B): ParameterDict()
+                  )
+                  (act_fn): SiLU()
+                )
+                (attention_norm): InternLM2RMSNorm()
+                (ffn_norm): InternLM2RMSNorm()
+              )
+            )
+            (norm): InternLM2RMSNorm()
+          )
+          (output): lora.Linear(
+            (base_layer): Linear4bit(in_features=2048, out_features=92553, bias=False)
+            (lora_dropout): ModuleDict(
+              (default): Dropout(p=0.05, inplace=False)
+            )
+            (lora_A): ModuleDict(
+              (default): Linear(in_features=2048, out_features=128, bias=False)
+            )
+            (lora_B): ModuleDict(
+              (default): Linear(in_features=128, out_features=92553, bias=False)
+            )
+            (lora_embedding_A): ParameterDict()
+            (lora_embedding_B): ParameterDict()
+          )
+        )
+      )
+    )
+    (mlp1): Sequential(
+      (0): LayerNorm((4096,), eps=1e-05, elementwise_affine=True)
+      (1): Linear(in_features=4096, out_features=2048, bias=True)
+      (2): GELU(approximate='none')
+      (3): Linear(in_features=2048, out_features=2048, bias=True)
+    )
+  )
+)
+2024/08/27 08:54:54 - mmengine - INFO - InternVL_V1_5 construction is complete
+2024/08/27 08:54:57 - mmengine - INFO - Num train samples 2000
+2024/08/27 08:54:57 - mmengine - INFO - train example:
+2024/08/27 08:54:57 - mmengine - INFO -  <s><|im_start|> system
+You are an AI assistant whose name is InternLM (书生·浦语).<|im_end|><|im_start|>user
+ <img> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> <IMG_CONTEXT> </img>  
+请你根据这张图片，讲一个脑洞大开的梗<|im_end|><|im_start|> assistant
+果然！大家都会把鼻屎抹在课桌下面<|im_end|>
+2024/08/27 08:54:57 - mmengine - WARNING - "FileClient" will be deprecated in future. Please use io functions in https://mmengine.readthedocs.io/en/latest/api/fileio.html#file-io
+2024/08/27 08:54:57 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
+2024/08/27 08:54:57 - mmengine - INFO - Checkpoints will be saved to /root/InternLM-813/L2/InternVL/work_dir/diy_config.
+2024/08/27 08:55:47 - mmengine - INFO - Iter(train) [  10/1344]  lr: 1.0000e+00  eta: 1:50:53  time: 4.9876  data_time: 0.0600  memory: 55585  loss: 5.3619
+2024/08/27 08:56:35 - mmengine - INFO - Iter(train) [  20/1344]  lr: 1.0000e+00  eta: 1:47:52  time: 4.7894  data_time: 0.0482  memory: 55598  loss: 5.1524
+2024/08/27 08:57:24 - mmengine - INFO - Iter(train) [  30/1344]  lr: 1.0000e+00  eta: 1:46:56  time: 4.8729  data_time: 0.0465  memory: 55627  loss: 5.1656
+2024/08/27 08:58:13 - mmengine - INFO - Iter(train) [  40/1344]  lr: 1.0000e+00  eta: 1:46:13  time: 4.9000  data_time: 0.0476  memory: 55543  loss: 5.4486
+2024/08/27 08:59:01 - mmengine - INFO - Iter(train) [  50/1344]  lr: 1.0000e+00  eta: 1:45:00  time: 4.7965  data_time: 0.0451  memory: 55775  loss: 5.4916
+2024/08/27 08:59:50 - mmengine - INFO - Iter(train) [  60/1344]  lr: 1.0000e+00  eta: 1:44:15  time: 4.8871  data_time: 0.0528  memory: 55663  loss: 5.3893
+2024/08/27 09:00:37 - mmengine - INFO - Iter(train) [  70/1344]  lr: 1.0000e+00  eta: 1:43:11  time: 4.7856  data_time: 0.0438  memory: 55571  loss: 5.1946
+2024/08/27 09:01:26 - mmengine - INFO - Iter(train) [  80/1344]  lr: 1.0000e+00  eta: 1:42:24  time: 4.8686  data_time: 0.0479  memory: 55657  loss: 5.1477
+2024/08/27 09:02:15 - mmengine - INFO - Iter(train) [  90/1344]  lr: 1.0000e+00  eta: 1:41:34  time: 4.8559  data_time: 0.0437  memory: 55805  loss: 5.4703
+2024/08/27 09:03:03 - mmengine - INFO - Iter(train) [ 100/1344]  lr: 1.0000e+00  eta: 1:40:45  time: 4.8501  data_time: 0.0531  memory: 55649  loss: 5.1675
+2024/08/27 09:03:52 - mmengine - INFO - Iter(train) [ 110/1344]  lr: 1.0000e+00  eta: 1:39:56  time: 4.8634  data_time: 0.0454  memory: 55575  loss: 5.2660
+2024/08/27 09:04:41 - mmengine - INFO - Iter(train) [ 120/1344]  lr: 1.0000e+00  eta: 1:39:14  time: 4.9201  data_time: 0.0484  memory: 55634  loss: 5.0884
+2024/08/27 09:05:29 - mmengine - INFO - Iter(train) [ 130/1344]  lr: 1.0000e+00  eta: 1:38:22  time: 4.8302  data_time: 0.0438  memory: 55832  loss: 5.2205
+2024/08/27 09:06:17 - mmengine - INFO - Iter(train) [ 140/1344]  lr: 1.0000e+00  eta: 1:37:30  time: 4.8219  data_time: 0.0485  memory: 55642  loss: 5.0284
+2024/08/27 09:07:05 - mmengine - INFO - Iter(train) [ 150/1344]  lr: 1.0000e+00  eta: 1:36:36  time: 4.7876  data_time: 0.0437  memory: 55518  loss: 5.0071
+2024/08/27 09:07:54 - mmengine - INFO - Iter(train) [ 160/1344]  lr: 1.0000e+00  eta: 1:35:49  time: 4.8854  data_time: 0.0484  memory: 55560  loss: 4.9825
+2024/08/27 09:08:33 - mmengine - INFO - Exp name: diy_config_20240827_085434
+2024/08/27 09:08:33 - mmengine - WARNING - Reach the end of the dataloader, it will be restarted and continue to iterate. It is recommended to use `mmengine.dataset.InfiniteSampler` to enable the dataloader to iterate infinitely.
+2024/08/27 09:08:45 - mmengine - INFO - Iter(train) [ 170/1344]  lr: 1.0000e+00  eta: 1:35:17  time: 5.0909  data_time: 0.3579  memory: 55948  loss: 4.9573
+2024/08/27 09:09:33 - mmengine - INFO - Iter(train) [ 180/1344]  lr: 1.0000e+00  eta: 1:34:25  time: 4.8186  data_time: 0.0493  memory: 55661  loss: 2.8256
+2024/08/27 09:10:21 - mmengine - INFO - Iter(train) [ 190/1344]  lr: 1.0000e+00  eta: 1:33:33  time: 4.8076  data_time: 0.0485  memory: 55727  loss: 2.3738
+2024/08/27 09:11:09 - mmengine - INFO - Iter(train) [ 200/1344]  lr: 1.0000e+00  eta: 1:32:41  time: 4.8125  data_time: 0.0454  memory: 55575  loss: 2.5893
+2024/08/27 09:11:58 - mmengine - INFO - Iter(train) [ 210/1344]  lr: 1.0000e+00  eta: 1:31:54  time: 4.8832  data_time: 0.0470  memory: 55932  loss: 2.7335
+2024/08/27 09:12:46 - mmengine - INFO - Iter(train) [ 220/1344]  lr: 1.0000e+00  eta: 1:31:02  time: 4.8094  data_time: 0.0476  memory: 55802  loss: 2.9305
+2024/08/27 09:13:34 - mmengine - INFO - Iter(train) [ 230/1344]  lr: 1.0000e+00  eta: 1:30:09  time: 4.7635  data_time: 0.0452  memory: 55534  loss: 2.4447
+2024/08/27 09:14:23 - mmengine - INFO - Iter(train) [ 240/1344]  lr: 1.0000e+00  eta: 1:29:21  time: 4.8618  data_time: 0.0455  memory: 55685  loss: 2.4317
+2024/08/27 09:15:12 - mmengine - INFO - Iter(train) [ 250/1344]  lr: 1.0000e+00  eta: 1:28:34  time: 4.8999  data_time: 0.0478  memory: 55839  loss: 2.7988
+2024/08/27 09:16:00 - mmengine - INFO - Iter(train) [ 260/1344]  lr: 1.0000e+00  eta: 1:27:44  time: 4.8132  data_time: 0.0427  memory: 55732  loss: 2.8457
+2024/08/27 09:16:49 - mmengine - INFO - Iter(train) [ 270/1344]  lr: 1.0000e+00  eta: 1:26:58  time: 4.9166  data_time: 0.0510  memory: 55706  loss: 2.3666
+2024/08/27 09:17:37 - mmengine - INFO - Iter(train) [ 280/1344]  lr: 1.0000e+00  eta: 1:26:07  time: 4.8170  data_time: 0.0471  memory: 55525  loss: 2.3145
+2024/08/27 09:18:26 - mmengine - INFO - Iter(train) [ 290/1344]  lr: 1.0000e+00  eta: 1:25:19  time: 4.8725  data_time: 0.0467  memory: 55659  loss: 2.8423
+2024/08/27 09:19:14 - mmengine - INFO - Iter(train) [ 300/1344]  lr: 1.0000e+00  eta: 1:24:28  time: 4.7847  data_time: 0.0457  memory: 55684  loss: 2.7940
+2024/08/27 09:20:02 - mmengine - INFO - Iter(train) [ 310/1344]  lr: 1.0000e+00  eta: 1:23:39  time: 4.8280  data_time: 0.0452  memory: 55675  loss: 2.5393
+2024/08/27 09:20:51 - mmengine - INFO - Iter(train) [ 320/1344]  lr: 1.0000e+00  eta: 1:22:51  time: 4.8771  data_time: 0.0513  memory: 55635  loss: 2.4755
+2024/08/27 09:21:40 - mmengine - INFO - Iter(train) [ 330/1344]  lr: 1.0000e+00  eta: 1:22:03  time: 4.8860  data_time: 0.0527  memory: 55742  loss: 2.6406
+2024/08/27 09:22:32 - mmengine - INFO - Iter(train) [ 340/1344]  lr: 1.0000e+00  eta: 1:21:25  time: 5.1899  data_time: 0.3519  memory: 55865  loss: 2.1334
+2024/08/27 09:23:20 - mmengine - INFO - Iter(train) [ 350/1344]  lr: 1.0000e+00  eta: 1:20:35  time: 4.8121  data_time: 0.0459  memory: 55691  loss: 1.0053
+2024/08/27 09:24:09 - mmengine - INFO - Iter(train) [ 360/1344]  lr: 1.0000e+00  eta: 1:19:47  time: 4.9138  data_time: 0.0526  memory: 55749  loss: 0.8658
+2024/08/27 09:24:57 - mmengine - INFO - Iter(train) [ 370/1344]  lr: 1.0000e+00  eta: 1:18:58  time: 4.8499  data_time: 0.0521  memory: 55632  loss: 0.8756
+2024/08/27 09:25:45 - mmengine - INFO - Iter(train) [ 380/1344]  lr: 1.0000e+00  eta: 1:18:08  time: 4.8182  data_time: 0.0444  memory: 55610  loss: 1.0927
+2024/08/27 09:26:34 - mmengine - INFO - Iter(train) [ 390/1344]  lr: 1.0000e+00  eta: 1:17:19  time: 4.8447  data_time: 0.0452  memory: 55617  loss: 0.9655
+2024/08/27 09:27:22 - mmengine - INFO - Iter(train) [ 400/1344]  lr: 1.0000e+00  eta: 1:16:29  time: 4.8051  data_time: 0.0469  memory: 55640  loss: 0.9176
+2024/08/27 09:28:10 - mmengine - INFO - Iter(train) [ 410/1344]  lr: 1.0000e+00  eta: 1:15:40  time: 4.8259  data_time: 0.0447  memory: 55685  loss: 1.0912
+2024/08/27 09:28:59 - mmengine - INFO - Iter(train) [ 420/1344]  lr: 1.0000e+00  eta: 1:14:51  time: 4.8765  data_time: 0.0464  memory: 55998  loss: 1.3077
+2024/08/27 09:29:47 - mmengine - INFO - Iter(train) [ 430/1344]  lr: 1.0000e+00  eta: 1:14:02  time: 4.8288  data_time: 0.0464  memory: 55677  loss: 1.0746
+2024/08/27 09:30:36 - mmengine - INFO - Iter(train) [ 440/1344]  lr: 1.0000e+00  eta: 1:13:13  time: 4.8423  data_time: 0.0457  memory: 55647  loss: 0.9320
+2024/08/27 09:31:24 - mmengine - INFO - Iter(train) [ 450/1344]  lr: 1.0000e+00  eta: 1:12:24  time: 4.8299  data_time: 0.0470  memory: 55632  loss: 1.1570
+2024/08/27 09:32:13 - mmengine - INFO - Iter(train) [ 460/1344]  lr: 1.0000e+00  eta: 1:11:36  time: 4.8812  data_time: 0.0453  memory: 55920  loss: 1.2099
+2024/08/27 09:33:01 - mmengine - INFO - Iter(train) [ 470/1344]  lr: 1.0000e+00  eta: 1:10:46  time: 4.7753  data_time: 0.0494  memory: 55642  loss: 1.0894
+2024/08/27 09:33:49 - mmengine - INFO - Iter(train) [ 480/1344]  lr: 1.0000e+00  eta: 1:09:57  time: 4.8623  data_time: 0.0468  memory: 55724  loss: 1.0260
+2024/08/27 09:34:37 - mmengine - INFO - Iter(train) [ 490/1344]  lr: 1.0000e+00  eta: 1:09:08  time: 4.8254  data_time: 0.0474  memory: 55571  loss: 1.1703
+2024/08/27 09:35:26 - mmengine - INFO - Iter(train) [ 500/1344]  lr: 1.0000e+00  eta: 1:08:20  time: 4.8793  data_time: 0.0459  memory: 55734  loss: 1.0784
+2024/08/27 09:36:19 - mmengine - INFO - Iter(train) [ 510/1344]  lr: 1.0000e+00  eta: 1:07:37  time: 5.2350  data_time: 0.4152  memory: 56031  loss: 0.7041
+2024/08/27 09:37:07 - mmengine - INFO - Iter(train) [ 520/1344]  lr: 1.0000e+00  eta: 1:06:48  time: 4.7954  data_time: 0.0451  memory: 55565  loss: 0.3352
+2024/08/27 09:37:56 - mmengine - INFO - Iter(train) [ 530/1344]  lr: 1.0000e+00  eta: 1:06:00  time: 4.9144  data_time: 0.0522  memory: 55649  loss: 0.2648
+2024/08/27 09:38:44 - mmengine - INFO - Iter(train) [ 540/1344]  lr: 1.0000e+00  eta: 1:05:10  time: 4.8166  data_time: 0.0448  memory: 55518  loss: 0.2561
+2024/08/27 09:39:32 - mmengine - INFO - Iter(train) [ 550/1344]  lr: 1.0000e+00  eta: 1:04:21  time: 4.8116  data_time: 0.0464  memory: 55662  loss: 0.3509
+2024/08/27 09:40:20 - mmengine - INFO - Iter(train) [ 560/1344]  lr: 1.0000e+00  eta: 1:03:32  time: 4.8233  data_time: 0.0427  memory: 55656  loss: 0.3817
+2024/08/27 09:41:08 - mmengine - INFO - Iter(train) [ 570/1344]  lr: 1.0000e+00  eta: 1:02:42  time: 4.7977  data_time: 0.0459  memory: 55521  loss: 0.3514
+2024/08/27 09:41:57 - mmengine - INFO - Iter(train) [ 580/1344]  lr: 1.0000e+00  eta: 1:01:54  time: 4.8741  data_time: 0.0460  memory: 55721  loss: 0.2348
+2024/08/27 09:42:45 - mmengine - INFO - Iter(train) [ 590/1344]  lr: 1.0000e+00  eta: 1:01:04  time: 4.7926  data_time: 0.0490  memory: 55882  loss: 0.3865
+2024/08/27 09:43:33 - mmengine - INFO - Iter(train) [ 600/1344]  lr: 1.0000e+00  eta: 1:00:15  time: 4.7699  data_time: 0.0470  memory: 55635  loss: 0.4057
+2024/08/27 09:44:21 - mmengine - INFO - Iter(train) [ 610/1344]  lr: 1.0000e+00  eta: 0:59:26  time: 4.8252  data_time: 0.0450  memory: 55635  loss: 0.3654
+2024/08/27 09:45:10 - mmengine - INFO - Iter(train) [ 620/1344]  lr: 1.0000e+00  eta: 0:58:37  time: 4.9012  data_time: 0.0470  memory: 55621  loss: 0.2529
+2024/08/27 09:45:59 - mmengine - INFO - Iter(train) [ 630/1344]  lr: 1.0000e+00  eta: 0:57:49  time: 4.8885  data_time: 0.0493  memory: 55775  loss: 0.4237
+2024/08/27 09:46:47 - mmengine - INFO - Iter(train) [ 640/1344]  lr: 1.0000e+00  eta: 0:57:01  time: 4.8549  data_time: 0.0460  memory: 55632  loss: 0.4149
+2024/08/27 09:47:35 - mmengine - INFO - Iter(train) [ 650/1344]  lr: 1.0000e+00  eta: 0:56:11  time: 4.8108  data_time: 0.0473  memory: 55528  loss: 0.4461
+2024/08/27 09:48:24 - mmengine - INFO - Iter(train) [ 660/1344]  lr: 1.0000e+00  eta: 0:55:22  time: 4.8167  data_time: 0.0456  memory: 55604  loss: 0.3346
+2024/08/27 09:49:13 - mmengine - INFO - Iter(train) [ 670/1344]  lr: 1.0000e+00  eta: 0:54:34  time: 4.9060  data_time: 0.0476  memory: 55792  loss: 0.3313
+2024/08/27 09:50:05 - mmengine - INFO - Iter(train) [ 680/1344]  lr: 1.0000e+00  eta: 0:53:49  time: 5.2297  data_time: 0.3880  memory: 56213  loss: 0.0988
+2024/08/27 09:50:53 - mmengine - INFO - Iter(train) [ 690/1344]  lr: 1.0000e+00  eta: 0:53:00  time: 4.7998  data_time: 0.0473  memory: 55684  loss: 0.1452
+2024/08/27 09:51:42 - mmengine - INFO - Iter(train) [ 700/1344]  lr: 1.0000e+00  eta: 0:52:12  time: 4.8773  data_time: 0.0520  memory: 55599  loss: 0.0776
+2024/08/27 09:52:31 - mmengine - INFO - Iter(train) [ 710/1344]  lr: 1.0000e+00  eta: 0:51:23  time: 4.9139  data_time: 0.0541  memory: 55707  loss: 0.1051
+2024/08/27 09:53:20 - mmengine - INFO - Iter(train) [ 720/1344]  lr: 1.0000e+00  eta: 0:50:35  time: 4.8933  data_time: 0.0516  memory: 55783  loss: 0.1183
+2024/08/27 09:54:09 - mmengine - INFO - Iter(train) [ 730/1344]  lr: 1.0000e+00  eta: 0:49:47  time: 4.8861  data_time: 0.0502  memory: 55760  loss: 0.0930
+2024/08/27 09:54:57 - mmengine - INFO - Iter(train) [ 740/1344]  lr: 1.0000e+00  eta: 0:48:58  time: 4.8627  data_time: 0.0517  memory: 55635  loss: 0.1500
+2024/08/27 09:55:45 - mmengine - INFO - Iter(train) [ 750/1344]  lr: 1.0000e+00  eta: 0:48:09  time: 4.7967  data_time: 0.0477  memory: 55667  loss: 0.1401
+2024/08/27 09:56:33 - mmengine - INFO - Iter(train) [ 760/1344]  lr: 1.0000e+00  eta: 0:47:20  time: 4.8086  data_time: 0.0426  memory: 55882  loss: 0.1270
+2024/08/27 09:57:22 - mmengine - INFO - Iter(train) [ 770/1344]  lr: 1.0000e+00  eta: 0:46:31  time: 4.8255  data_time: 0.0505  memory: 55675  loss: 0.1200
+2024/08/27 09:58:10 - mmengine - INFO - Iter(train) [ 780/1344]  lr: 1.0000e+00  eta: 0:45:42  time: 4.8363  data_time: 0.0474  memory: 55583  loss: 0.1085
+2024/08/27 09:58:59 - mmengine - INFO - Iter(train) [ 790/1344]  lr: 1.0000e+00  eta: 0:44:54  time: 4.9067  data_time: 0.0515  memory: 55560  loss: 0.0850
+2024/08/27 09:59:46 - mmengine - INFO - Iter(train) [ 800/1344]  lr: 1.0000e+00  eta: 0:44:04  time: 4.7320  data_time: 0.0418  memory: 55756  loss: 0.1333
+2024/08/27 10:00:34 - mmengine - INFO - Iter(train) [ 810/1344]  lr: 1.0000e+00  eta: 0:43:15  time: 4.7791  data_time: 0.0466  memory: 55524  loss: 0.1437
+2024/08/27 10:01:22 - mmengine - INFO - Iter(train) [ 820/1344]  lr: 1.0000e+00  eta: 0:42:26  time: 4.7975  data_time: 0.0466  memory: 55525  loss: 0.1574
+2024/08/27 10:02:11 - mmengine - INFO - Iter(train) [ 830/1344]  lr: 1.0000e+00  eta: 0:41:38  time: 4.9302  data_time: 0.0553  memory: 55643  loss: 0.0622
+2024/08/27 10:03:00 - mmengine - INFO - Iter(train) [ 840/1344]  lr: 1.0000e+00  eta: 0:40:49  time: 4.8988  data_time: 0.0467  memory: 55940  loss: 0.0802
+2024/08/27 10:03:52 - mmengine - INFO - Iter(train) [ 850/1344]  lr: 1.0000e+00  eta: 0:40:02  time: 5.1534  data_time: 0.4012  memory: 55948  loss: 0.0285
+2024/08/27 10:04:41 - mmengine - INFO - Iter(train) [ 860/1344]  lr: 1.0000e+00  eta: 0:39:14  time: 4.8651  data_time: 0.0438  memory: 55610  loss: 0.0553
+2024/08/27 10:05:30 - mmengine - INFO - Iter(train) [ 870/1344]  lr: 1.0000e+00  eta: 0:38:25  time: 4.9050  data_time: 0.0514  memory: 55577  loss: 0.0484
+2024/08/27 10:06:19 - mmengine - INFO - Iter(train) [ 880/1344]  lr: 1.0000e+00  eta: 0:37:37  time: 4.9156  data_time: 0.0477  memory: 55628  loss: 0.0855
+2024/08/27 10:07:07 - mmengine - INFO - Iter(train) [ 890/1344]  lr: 1.0000e+00  eta: 0:36:48  time: 4.7818  data_time: 0.0459  memory: 55804  loss: 0.1217
+2024/08/27 10:07:55 - mmengine - INFO - Iter(train) [ 900/1344]  lr: 1.0000e+00  eta: 0:35:59  time: 4.8211  data_time: 0.0451  memory: 55687  loss: 0.0563
+2024/08/27 10:08:43 - mmengine - INFO - Iter(train) [ 910/1344]  lr: 1.0000e+00  eta: 0:35:10  time: 4.8245  data_time: 0.0460  memory: 55546  loss: 0.0791
+2024/08/27 10:09:31 - mmengine - INFO - Iter(train) [ 920/1344]  lr: 1.0000e+00  eta: 0:34:22  time: 4.8419  data_time: 0.0481  memory: 55568  loss: 0.0449
+2024/08/27 10:10:19 - mmengine - INFO - Iter(train) [ 930/1344]  lr: 1.0000e+00  eta: 0:33:32  time: 4.7433  data_time: 0.0454  memory: 55658  loss: 0.0642
+2024/08/27 10:11:07 - mmengine - INFO - Iter(train) [ 940/1344]  lr: 1.0000e+00  eta: 0:32:44  time: 4.8116  data_time: 0.0450  memory: 55597  loss: 0.0756
+2024/08/27 10:11:55 - mmengine - INFO - Iter(train) [ 950/1344]  lr: 1.0000e+00  eta: 0:31:55  time: 4.8348  data_time: 0.0454  memory: 55621  loss: 0.0483
+2024/08/27 10:12:44 - mmengine - INFO - Iter(train) [ 960/1344]  lr: 1.0000e+00  eta: 0:31:06  time: 4.8914  data_time: 0.0463  memory: 55643  loss: 0.0544
+2024/08/27 10:13:33 - mmengine - INFO - Iter(train) [ 970/1344]  lr: 1.0000e+00  eta: 0:30:18  time: 4.8737  data_time: 0.0485  memory: 55989  loss: 0.0560
+2024/08/27 10:14:22 - mmengine - INFO - Iter(train) [ 980/1344]  lr: 1.0000e+00  eta: 0:29:29  time: 4.8973  data_time: 0.0517  memory: 55706  loss: 0.0491
+2024/08/27 10:15:10 - mmengine - INFO - Iter(train) [ 990/1344]  lr: 1.0000e+00  eta: 0:28:40  time: 4.7893  data_time: 0.0430  memory: 55625  loss: 0.0303
+2024/08/27 10:15:59 - mmengine - INFO - Exp name: diy_config_20240827_085434
+2024/08/27 10:15:59 - mmengine - INFO - Iter(train) [1000/1344]  lr: 1.0000e+00  eta: 0:27:52  time: 4.9085  data_time: 0.0496  memory: 55558  loss: 0.0777
+2024/08/27 10:15:59 - mmengine - INFO - Saving checkpoint at 1000 iterations
+2024/08/27 10:16:53 - mmengine - INFO - Iter(train) [1010/1344]  lr: 1.0000e+00  eta: 0:27:05  time: 5.4047  data_time: 0.5973  memory: 55881  loss: 0.1046
+2024/08/27 10:17:41 - mmengine - INFO - Iter(train) [1020/1344]  lr: 1.0000e+00  eta: 0:26:16  time: 4.8251  data_time: 0.0486  memory: 55716  loss: 0.0192
+2024/08/27 10:18:29 - mmengine - INFO - Iter(train) [1030/1344]  lr: 1.0000e+00  eta: 0:25:28  time: 4.8255  data_time: 0.0467  memory: 55556  loss: 0.0255
+2024/08/27 10:19:17 - mmengine - INFO - Iter(train) [1040/1344]  lr: 1.0000e+00  eta: 0:24:38  time: 4.7293  data_time: 0.0421  memory: 55497  loss: 0.0062
+2024/08/27 10:20:06 - mmengine - INFO - Iter(train) [1050/1344]  lr: 1.0000e+00  eta: 0:23:50  time: 4.8863  data_time: 0.0471  memory: 55770  loss: 0.0468
+2024/08/27 10:20:54 - mmengine - INFO - Iter(train) [1060/1344]  lr: 1.0000e+00  eta: 0:23:01  time: 4.8153  data_time: 0.0462  memory: 55667  loss: 0.0334
+2024/08/27 10:21:42 - mmengine - INFO - Iter(train) [1070/1344]  lr: 1.0000e+00  eta: 0:22:12  time: 4.8328  data_time: 0.0463  memory: 55600  loss: 0.0776
+2024/08/27 10:22:30 - mmengine - INFO - Iter(train) [1080/1344]  lr: 1.0000e+00  eta: 0:21:23  time: 4.7491  data_time: 0.0464  memory: 55493  loss: 0.0934
+2024/08/27 10:23:19 - mmengine - INFO - Iter(train) [1090/1344]  lr: 1.0000e+00  eta: 0:20:35  time: 4.9397  data_time: 0.0526  memory: 55925  loss: 0.0172
+2024/08/27 10:24:07 - mmengine - INFO - Iter(train) [1100/1344]  lr: 1.0000e+00  eta: 0:19:46  time: 4.7713  data_time: 0.0437  memory: 55610  loss: 0.0230
+2024/08/27 10:24:56 - mmengine - INFO - Iter(train) [1110/1344]  lr: 1.0000e+00  eta: 0:18:58  time: 4.9217  data_time: 0.0947  memory: 55623  loss: 0.0134
+2024/08/27 10:25:45 - mmengine - INFO - Iter(train) [1120/1344]  lr: 1.0000e+00  eta: 0:18:09  time: 4.9025  data_time: 0.0518  memory: 55633  loss: 0.0626
+2024/08/27 10:26:34 - mmengine - INFO - Iter(train) [1130/1344]  lr: 1.0000e+00  eta: 0:17:20  time: 4.8619  data_time: 0.0463  memory: 55732  loss: 0.0212
+2024/08/27 10:27:22 - mmengine - INFO - Iter(train) [1140/1344]  lr: 1.0000e+00  eta: 0:16:32  time: 4.8290  data_time: 0.0439  memory: 55788  loss: 0.0417
+2024/08/27 10:28:10 - mmengine - INFO - Iter(train) [1150/1344]  lr: 1.0000e+00  eta: 0:15:43  time: 4.8048  data_time: 0.0438  memory: 55630  loss: 0.1010
+2024/08/27 10:28:59 - mmengine - INFO - Iter(train) [1160/1344]  lr: 1.0000e+00  eta: 0:14:54  time: 4.9175  data_time: 0.0477  memory: 55699  loss: 0.0333
+2024/08/27 10:29:48 - mmengine - INFO - Iter(train) [1170/1344]  lr: 1.0000e+00  eta: 0:14:06  time: 4.8849  data_time: 0.0481  memory: 55507  loss: 0.0253
+2024/08/27 10:30:40 - mmengine - INFO - Iter(train) [1180/1344]  lr: 1.0000e+00  eta: 0:13:18  time: 5.2100  data_time: 0.3911  memory: 55981  loss: 0.0616
+2024/08/27 10:31:28 - mmengine - INFO - Iter(train) [1190/1344]  lr: 1.0000e+00  eta: 0:12:29  time: 4.7674  data_time: 0.0434  memory: 55632  loss: 0.0130
+2024/08/27 10:32:16 - mmengine - INFO - Iter(train) [1200/1344]  lr: 1.0000e+00  eta: 0:11:40  time: 4.8374  data_time: 0.0482  memory: 55578  loss: 0.0157
+2024/08/27 10:33:05 - mmengine - INFO - Iter(train) [1210/1344]  lr: 1.0000e+00  eta: 0:10:52  time: 4.8601  data_time: 0.0481  memory: 55647  loss: 0.0442
+2024/08/27 10:33:53 - mmengine - INFO - Iter(train) [1220/1344]  lr: 1.0000e+00  eta: 0:10:03  time: 4.8546  data_time: 0.0491  memory: 55645  loss: 0.0230
+2024/08/27 10:34:42 - mmengine - INFO - Iter(train) [1230/1344]  lr: 1.0000e+00  eta: 0:09:14  time: 4.8422  data_time: 0.0446  memory: 55706  loss: 0.0265
+2024/08/27 10:35:30 - mmengine - INFO - Iter(train) [1240/1344]  lr: 1.0000e+00  eta: 0:08:25  time: 4.8507  data_time: 0.0479  memory: 55639  loss: 0.0357
+2024/08/27 10:36:19 - mmengine - INFO - Iter(train) [1250/1344]  lr: 1.0000e+00  eta: 0:07:37  time: 4.9105  data_time: 0.0503  memory: 55691  loss: 0.0118
+2024/08/27 10:37:08 - mmengine - INFO - Iter(train) [1260/1344]  lr: 1.0000e+00  eta: 0:06:48  time: 4.8679  data_time: 0.0498  memory: 55849  loss: 0.0197
+2024/08/27 10:37:57 - mmengine - INFO - Iter(train) [1270/1344]  lr: 1.0000e+00  eta: 0:06:00  time: 4.8868  data_time: 0.0487  memory: 55683  loss: 0.0534
+2024/08/27 10:38:46 - mmengine - INFO - Iter(train) [1280/1344]  lr: 1.0000e+00  eta: 0:05:11  time: 4.8942  data_time: 0.0502  memory: 55745  loss: 0.0282
+2024/08/27 10:39:33 - mmengine - INFO - Iter(train) [1290/1344]  lr: 1.0000e+00  eta: 0:04:22  time: 4.7518  data_time: 0.0439  memory: 55593  loss: 0.0317
+2024/08/27 10:40:22 - mmengine - INFO - Iter(train) [1300/1344]  lr: 1.0000e+00  eta: 0:03:34  time: 4.8812  data_time: 0.0459  memory: 55820  loss: 0.0214
+2024/08/27 10:41:09 - mmengine - INFO - Iter(train) [1310/1344]  lr: 1.0000e+00  eta: 0:02:45  time: 4.7144  data_time: 0.0439  memory: 55601  loss: 0.0570
+2024/08/27 10:41:57 - mmengine - INFO - Iter(train) [1320/1344]  lr: 1.0000e+00  eta: 0:01:56  time: 4.7788  data_time: 0.0511  memory: 55560  loss: 0.0224
+2024/08/27 10:42:46 - mmengine - INFO - Iter(train) [1330/1344]  lr: 1.0000e+00  eta: 0:01:08  time: 4.8959  data_time: 0.0490  memory: 55510  loss: 0.0590
+2024/08/27 10:43:35 - mmengine - INFO - Iter(train) [1340/1344]  lr: 1.0000e+00  eta: 0:00:19  time: 4.9235  data_time: 0.0508  memory: 55790  loss: 0.0377
+2024/08/27 10:43:55 - mmengine - INFO - Saving checkpoint at 1344 iterations
